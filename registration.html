@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="registration.css">
+    <title>IDentity</title>
+</head>
+<body>
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form action="#" class="sign-in-form">
+                <h2 class="title">Sign in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="School-ID" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" />
+                </div>
+                <div class="input-field">
+                    <select id="userType">
+                        <option value="student">Student</option>
+                        <option value="faculty">Faculty</option>
+                    </select>
+                </div>
+                <input type="submit" value="Login" class="btn solid" />
+                <div class="image-container">
+                    <img src="IMG/DBSLOGO.png" alt="img" width="240" height="150">
+                  </div>
+              
+                
+               
+            </form>
+            <form action="#" class="sign-up-form">
+                <h2 class="title">Sign up</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="School-ID" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" />
+                </div>
+                <div class="input-field">
+                    <select id="userTypeSignUp">
+                        <option value="student">Student</option>
+                        <option value="faculty">Faculty</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn" value="Sign up" />
+                <div class="image-container">
+                    <img src="IMG/DBSLOGO.png" alt="img" width="240" height="150">
+                  </div>
+              
+                
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>IDentity</h3>
+                <p>
+                    Make A Account Here!!
+                </p>
+                <button class="btn transparent" id="sign-up-btn">
+                    Sign up
+                </button>
+            </div>
+                 
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>IDentity</h3>
+                <p>
+                    Already Have Account? Click Here!!
+                </p>
+                <button class="btn transparent" id="sign-in-btn">
+                    Sign in
+                </button>
+            </div>
+              
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

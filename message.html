@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="message.css" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <img src="IMG/shape.png" class="square" alt="" />
+
+    <!-- Add the button here -->
+  
+
+    <div class="form">
+      <div class="contact-info">
+        <div>
+          <button onclick="window.location.href = 'homie.html';"  class="custom-btn btn-2"><span>Go Back</span></button>
+        </div>
+        <h3 class="title">Tell us you're Concerns</h3>
+        <p class="text">Welcome to the message page! Here is where you may share your concerns, questions, and inquiries! We'll swiftly forward your messages to our professor. An effective learning environment depends on communication!</p>
+
+        <div class="info">
+          <div class="information">
+            <img src="IMG/location.png" class="icon" alt="" />
+            <p>Paradise</p>
+          </div>
+          <div class="information">
+            <img src="IMG/email.png" class="icon" alt="" />
+            <p>IDentity101G@gmail.com</p>
+          </div>
+          <div class="information">
+            <img src="IMG/phone.png" class="icon" alt="" />
+            <p>63+ 9XXXXXXXXX</p>
+          </div>
+        </div>
+
+        <div class="social-media">
+          <p>EASY TO CONTACT</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+        <span class="circle three"></span>
+
+        <form id="contactForm" autocomplete="off">
+          <h3 class="title">Contact us</h3>
+          <div class="input-container">
+            <input type="text" id="name" class="input" placeholder="School-ID"/>
+          </div>
+          <div class="input-container">
+            <input type="concern" id="concern" class="input" placeholder="Concern"/>
+          </div>
+          <div class="input-container">
+            <input type="tel" id="phone" class="input" placeholder="Phone Number" />
+          </div>
+          <div class="input-container textarea">
+            <textarea id="message" class="input" placeholder="Message."></textarea>
+          </div>
+          <button type="submit" class="btn">Send</button>
+          <p id="confirmationMessage" style="display: none;">Message sent!</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const name = document.getElementById('name').value;
+    const concern = document.getElementById('concern').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+  
+    // Redirect to receiving message page with form data appended to URL
+    window.location.href = 'receive.html?schoolId=' + encodeURIComponent(name) + '&concern=' + encodeURIComponent(concern) + '&phoneNumber=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(message);
+  });
+  </script>
+</body>
+</html>

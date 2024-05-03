@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qr code generator</title>
+    <link rel="stylesheet" href="qrgen.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <button onclick="window.location.href = 'homie.html';"  class="custom-btn btn-2"><span>Go Back</span></button>
+            <h1>Generate your Information</h1>
+            <p>Fill up!!</p>
+        </header>
+        <div class="form">
+            <span class="circle one"></span>
+          <span class="circle two"></span>
+          <span class="circle three"></span>
+
+            <input type="text" class="qr-input" spellcheck="false" placeholder="School-Id" />
+            <input type="text" class="qr-input" spellcheck="false" placeholder="Firstname" />
+            <input type="text" class="qr-input" spellcheck="false" placeholder="Lastname" />
+            <input type="text" class="qr-input" spellcheck="false" placeholder="Mi or NA if none" />
+            <input type="text" class="qr-input" spellcheck="false" placeholder="Email" />
+            <button class="generate-btn">Generate qr code</button>
+        </div>
+        <div class="qr-code">
+            <img src="" alt="qr-code" />
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const wrapper = document.querySelector(".wrapper");
+            const qrInputs = wrapper.querySelectorAll(".qr-input");
+            const generateBtn = wrapper.querySelector(".generate-btn");
+            const qrImg = wrapper.querySelector(".qr-code img");
+            let preValues = [];
+
+            generateBtn.addEventListener("click", () => {
+                let qrValues = Array.from(qrInputs).map(input => input.value.trim());
+                if (qrValues.some(value => !value) || JSON.stringify(preValues) === JSON.stringify(qrValues)) return;
+                preValues = qrValues.slice();
+                generateBtn.innerText = "Generating QR code..";
+
+                let qrData = qrValues.join(',');
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}`;
+
+                qrImg.addEventListener("load", () => {
+                    wrapper.classList.add("active");
+                    generateBtn.innerText = "Generate qr code";
+                });
+            });
+
+            qrInputs.forEach(input => {
+                input.addEventListener("keyup", () => {
+                    if (qrInputs.every(input => !input.value.trim())) {
+                        wrapper.classList.remove("active");
+                        preValues = [];
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
